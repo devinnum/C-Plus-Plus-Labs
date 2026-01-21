@@ -1,0 +1,17 @@
+C006 000       jmp
+0000 001 i     dw
+0000 002 j     dw
+0000 003 k     dw
+0000 004 s     dw
+0000 005
+1000 006 readH 
+4001 007 store i
+1000 008 readH
+4002 009 store j
+1000 00a readH
+4003 00b store k
+3004 00c load  s
+5001 00d add   i
+5002 00e add   j
+5003 00f add   k
+4004 010 store s

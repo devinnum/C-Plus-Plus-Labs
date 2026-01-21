@@ -1,0 +1,109 @@
+C00D 000	jmp 	start 	skip around the variables
+0000 001 i 	dw 	0 	int i
+0000 002 j 	dw 	0 	int s
+0070 003 a 	dw 	0 	int a[]
+000A 004 n 	dw 	10
+0000 005 zero 	dw 	0
+0001 006 one 	dw 	1
+4000 007 adit 	dw 	4000
+3000 008 print  dw      3000
+0000 009 temp   dw    	0       leave space for changes
+0000 00A mem    dw      0
+B000 00B 	nop		read array address
+B000 00C        nop
+B000 00D 	nop 	
+B000 00E 	nop 	
+3005 00F 	load 	zero 	i = 0; s = 0;
+4001 010 	store 	i
+4002 011 	store 	j
+3004 012 loop 	load 	n 	if (i >= N) goto xit
+6001 013 	sub 	i
+E024 014 	jmpl 	xit
+D024 015 	jmpe 	xit
+1000 016 	readH 	
+B000 017 	nop 	
+4002 018 	store 	j
+3007 019 	load 	adit 	
+5001 01A 	add 	i 	
+5003 01B 	add 	a
+401E 01C        store   doit
+3002 01D        load    j
+0000 01E doit	dw 	0
+3001 01F 	load 	i 	i += 1
+5006 020 	add 	one
+4001 021 	store 	i
+C012 022 	jmp 	loop 	goto loop
+B000 023  	nop	 	
+3005 024 	load    zero
+4001 025        store   i
+4002 026        store   j
+3004 027 loop   load    n
+6001 028        sub     i
+E05C 029        jmpl    print   goto printloop
+D05C 02A        jmpe    print   goto printloop
+3004 02B        load    n
+6006 02C        sub     one
+4002 02D        store   j
+3002 02E inloop load    j
+6001 02F        sub     i
+E058 030        jmpl    loop    goto increment i
+D058 031        jmpe    loop    goto increment i
+3003 032        load    a
+5002 033        add     j
+5008 034        add     printit
+4036 035        store   doit
+0000 036 doit   dw      0
+400A 037        store   mem
+3003 038        load    a
+5002 039        add     j
+6006 03A        sub     one
+5008 03B        add     printit
+403D 03C        store   doit
+0000 03D doit   dw      0
+600A 03E        sub     mem
+E053 03F        jmpl    loop    goto j --
+D053 040        jmpe    loop    goto j --
+300A 041        load    mem
+4009 042        store   temp
+3003 043        load    a
+5002 044        add     j
+5007 045        add     adit
+4050 046        store   doitd
+3003 047        load    a
+5002 048        add     j
+6006 049        sub     one
+5008 04A        add     printit
+404F 04B        store   doit
+6008 04C        sub     printit
+5007 04D        add     adit
+4052 04E        store   doitc
+0000 04F doit   dw      0
+0000 050 doitd  dw      0
+3009 051        load    temp
+0000 052 doitc  dw      0
+3002 053        load    j       j -- 
+6006 054        sub     one
+4002 055        store   j
+C02E 056        jmp     inloop
+B000 057        nop
+3001 058 	load 	i 	i += 1
+5006 059 	add 	one
+4001 05A 	store 	i
+C027 05B        jmp     loop    goto loop
+3005 05C        load    zero
+4001 05D        store   i
+3004 05E loop   load    n
+6001 05F        sub     i
+E06C 060        jmpl    xit
+D06C 061        jmpe    xit
+3003 062        load    a
+5001 063        add     i
+5008 064        add     print
+4066 065        store   doit
+0000 066 doit   dw      0
+1800 067
+3001 068 	load 	i 	i += 1
+5006 069 	add 	one
+4001 06A 	store 	i
+C05E 06B        jmp     loop
+0000 06C 	halt

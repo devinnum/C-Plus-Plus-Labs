@@ -1,0 +1,22 @@
+B000 000 i       dw       0
+C006 001         jmp      start
+B000 002 nop     dw       B000
+0016 003 len     dw       15
+0001 004 one     dw       1
+3000 005 print   dw       3000
+3003 006 loop    load     len
+6000 007         sub      i
+5002 008         add      nop
+E015 009         jmpl     xit
+D015 00A         jmpe     xit
+3005 00B         load     print
+5000 00C         add      i
+6002 00D         sub      nop
+400F 00E         store    doit
+300F 00F doit    dw       0
+1800 010         printH
+3000 011         load     i
+5004 012         add      one
+4000 013         store    i
+C006 014         jmp      loop
+0000 015 xit

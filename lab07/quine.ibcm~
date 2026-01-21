@@ -1,0 +1,15 @@
+C004 000         jmp      start
+0010 001 len     dw       10
+0000 002 i       dw       0
+3000 003 print   dw       3000
+3001 004 loop    load     len
+6002 005         sub      i
+E00E 006         jmpl     xit
+D00E 007         jmpe     xit
+3003 008         load     print
+5002 009         add      i
+400B 00A         store    doit
+0000 00B doit    dw       0
+1800 00C
+C004 00D         jmp      loop
+0000 00E xit

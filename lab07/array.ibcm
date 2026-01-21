@@ -1,0 +1,70 @@
+C00D 000	jmp 	start 	skip around the variables
+0000 001 i 	dw 	0 	int i
+0000 002 s 	dw 	0 	int s
+0050 003 a 	dw 	0 	int a[]
+0000 004 n 	dw 	0
+0000 005 zero 	dw 	0
+0001 006 one 	dw 	1
+4000 007 adit 	dw 	4000
+3000 008 print  dw      3000
+0000 009 			leave space for changes
+0000 00A
+B000 00B 	nop		read array address
+B000 00C        nop
+1000 00D 	readH 		read array size
+4004 00E 	store 	n
+3005 00F 	load 	zero 	i = 0; s = 0;
+4001 010 	store 	i
+4002 011 	store 	s
+3004 012 loop 	load 	n 	if (i >= N) goto xit
+6001 013 	sub 	i
+E024 014 	jmpl 	xit
+D024 015 	jmpe 	xit
+1000 016 	readH 	
+B000 017 	nop 	
+4002 018 	store 	s
+3007 019 	load 	adit 	
+5001 01A 	add 	i 	
+5003 01B 	add 	a
+401E 01C        store   doit
+3002 01D        load    s
+0000 01E doit	dw 	0
+3001 01F 	load 	i 	i += 1
+5006 020 	add 	one
+4001 021 	store 	i
+C012 022 	jmp 	loop 	goto loop
+B000 023  	nop	 	
+3005 024 	load    zero
+4001 025        store   i
+4002 026        store   s
+3004 027 loop   load    n
+6001 028        sub     i
+E035 029        jmpl    backloop
+D035 02A        jmpe    backloop
+3003 02B        load    a
+5001 02C        add     i
+5008 02D        add     print
+402F 02E        store   doit
+0000 02F doit   dw      0
+1800 030
+3001 031 	load 	i 	i += 1
+5006 032 	add 	one
+4001 033 	store 	i
+C027 034        jmp     loop
+3005 035        load    zero
+4001 036        store   i
+3004 037 loop   load    n
+6006 038        sub     one
+E045 039        jmpl    xit
+3003 03A        load    a
+5004 03B        add     n
+6006 03C        sub     1
+5008 03D        add     print
+403F 03E        store   doit
+0000 03F doit   dw      0
+1800 040
+3004 041        load    n
+6006 042        sub     one
+4004 043        store   n
+C037 044        jmp     loop
+0000 045 	halt

@@ -1,0 +1,26 @@
+C006 000        jmp     jump over variables
+0000 001 i      dw      int i
+0000 002 j      dw      int j
+0000 003 k      dw      int k
+0000 004 s      dw      int s
+0000 005
+1000 006 readH          read i
+4001 007 store  i 
+1000 008 readH          read j
+4002 009 store  j
+1000 00a readH          read k
+4003 00b store  k
+3004 00c load   s       load s which is 0
+5001 00d add    i       add i
+5002 00e add    j       add j
+5003 00f add    k       add k
+1800 010 printH         print the accumulator
+D013 011 jmpe           jump out of loop if accumulator is 0
+C006 012 jmp            jump to start of loop otherwise  
+3001 013 load   i       load i
+1800 014 printH i       print i
+3002 015 load   j       load j
+1800 016 printH j       print j
+3003 017 load   k       load k
+1800 018 printH k       print k
+0000 019 halt           halt
