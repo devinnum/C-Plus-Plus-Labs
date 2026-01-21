@@ -1,0 +1,31 @@
+	global binarySearch:
+
+	section .txt
+
+binarySearch:
+
+	mov rax, -1
+	lea r8, [rdi+rdx]
+	shr r8, 1
+	cmp r8, rcx
+	je  done
+	jl  less
+	jg  greater
+
+less:
+	mov rdx, r8
+	call binarySearch
+	ret
+
+greater:
+	mov rdi, r8
+	call binarySearch
+	ret
+
+
+
+
+done:
+
+	mov rax, r8
+	ret

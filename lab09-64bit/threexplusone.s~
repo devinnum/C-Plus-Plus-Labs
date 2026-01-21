@@ -1,0 +1,32 @@
+	global threexplusone
+
+	section .txt
+
+threexplusone:
+	
+	cmp  rdi, 1
+	je   done
+	mov  rdx, 0
+	mov  rax, rdi
+	mov  rsi, 2
+	div  rsi
+	cmp  rdx, 0
+	je   equal
+
+odd:
+	mov  rcx, rdi
+	mov  rsi, 3
+	imul rcx, rsi
+	inc  rcx
+	mov  rdi, rcx
+	call threexplusone
+	inc  rax
+	jmp  done
+
+equal:
+	shr  rdi
+	call threexplusone
+	inc  rax
+
+done:
+	ret
