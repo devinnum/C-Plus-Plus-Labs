@@ -1,0 +1,24 @@
+#include "stack.h"
+#include <iostream>
+
+using namespace std;
+
+calcStack::calcStack() {
+  list = new List();
+}
+
+void calcStack::push(int e) {
+  list->insertBefore(e, list->first());
+}
+
+void calcStack::pop() {
+  list->remove(list->first().retrieve());
+}
+
+int calcStack::top() const {
+  return list->first().retrieve();
+}
+
+bool calcStack::empty() const {
+  return list->isEmpty();
+}
