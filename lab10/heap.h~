@@ -1,0 +1,14 @@
+#ifndef HEAP_H
+#define HEAP_H
+
+#include <iostream>
+#include "HuffNode.h"
+
+using namespace std;
+
+class heap {
+public:
+
+  heap();
+
+  ~heap();

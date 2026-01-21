@@ -1,0 +1,18 @@
+#ifndef LISTNODE_H
+#define LISTNODE_H
+
+#include <iostream>
+
+using namespace std;
+
+class ListNode {
+public:
+    node();        
+
+private:
+    int value;         
+    node* left;     
+    node* right; 
+};
+
+#endif

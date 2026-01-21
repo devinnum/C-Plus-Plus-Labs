@@ -1,0 +1,29 @@
+#include "heap.h"
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+heap::heap() : heap_size(0) {
+  heap.pushback(0);
+}
+
+heap::heap(vector<int> vec) : heap_size(vec.size()) {
+  heap = vec;
+  heap.push_back(heap[0]);
+  heap[0] = 0;
+  for (int i = heap_size/2; i > 0; i--) {
+    precolateDown(i);
+  }
+}
+
+heap::~heap() {
+}
+
+int heap::findMin() {
+  if (heap_size == ) {
+    throw "finMin() called on empty heap";
+  }
+  return heap[1];
+}
+   
