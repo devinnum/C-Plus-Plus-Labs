@@ -1,0 +1,32 @@
+#include "ListItr.h"
+#include <iostream>
+
+using namespace std;
+
+ListItr::ListItr() {
+  current = NULL;
+}
+
+ListItr::ListItr(ListNode* theNode) {
+  current = theNode;
+}
+
+bool ListItr::isPastEnd() const {
+  if (current = tail) {
+    return 1;
+  }
+  return 0;
+}
+
+bool ListItr::isPastBeginning() const{
+  if (current = head) {
+    return 1:
+  }
+  return 0;
+}
+
+void ListItr:moveForward() {
+  if (!isPastEnd()) {
+    current = current->next;
+  }
+

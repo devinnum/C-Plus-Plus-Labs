@@ -1,0 +1,10 @@
+# inlude "ListNode.h"
+# include <iostream>
+
+using namespace std;
+
+ListNode::ListNode() {
+  value = NULL;
+  next = NULL;
+  previous = NULL;
+}
