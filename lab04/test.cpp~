@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+#include <climits>
+
+using namespace std:
+
+int main() {
+
+  cout << "int" << INT_MAX << endl;
+  cout << "unsigned int" << UINT_MAX << endl;
+  cout << "float" << INT_MAX << endl;
+  cout << "double" << INT_MAX << endl;
+  cout << "char" << CHAR_MAX << endl;
+  
+  
+}
