@@ -1,0 +1,17 @@
+CXX=clang++ $(CXXFLAGS)
+CXXFLAGS=-Wall -O2
+DEBUG=-g
+OBJECTS=BinarySearchTree.o BinaryNode.o BSTPathTest.o
+
+BinarySearchTree: $(OBJECTS)
+	$(CXX) $(DEBUG) $(OBJECTS)
+
+BinarySearchTree.o: BinarySearchTree.cpp BinarySearchTree.h BinaryNode.h
+
+BinaryNode.o: BinaryNode.cpp BinaryNode.h
+
+BSTPathTest.o: BSTPathTest.cpp BinarySearchTree.h
+
+.PHONY: clean
+clean:
+	-rm -f *.o *~ a.out
