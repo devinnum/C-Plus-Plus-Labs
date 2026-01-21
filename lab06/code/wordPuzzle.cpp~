@@ -1,0 +1,13 @@
+#include <iostream>
+#include <unordered_set>
+
+using namespace std;
+
+int main(int argc, char **argv) {
+  unordered_set<string>* map = new unordered_set<string>;
+  string token;
+  while (arg[0] >> token) {
+    
+    
+  }
+}

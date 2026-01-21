@@ -1,0 +1,8 @@
+#ifndef HASHTABLE.H
+#define HASHTABLE.H
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
