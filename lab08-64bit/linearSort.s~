@@ -1,0 +1,15 @@
+	global linearSort:
+
+	section .txt
+
+linearSort:
+
+	mov rax, -1
+	xor rcx, rcx
+
+start:
+	
+	cmp rsi, rcx
+	je  done
+	cmp rdx, [rdi+4*rcx]
+	

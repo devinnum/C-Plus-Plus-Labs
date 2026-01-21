@@ -1,0 +1,18 @@
+	global product:
+
+	section .text
+
+product:
+
+	xor rax, rax
+	xor r10, r10
+
+start:
+	cmp r10, rsi
+	je  done
+	add rax, rdi
+	inc r10
+	jmp start
+
+done:
+	ret
